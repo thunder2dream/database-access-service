@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { ConfigService } from '../config/config.service';
 import { HttpService } from '@nestjs/axios';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
@@ -16,11 +16,23 @@ export class RequestToOrganizationService {
       config.organizationServiceConfig().locationBaseUrl;
   }
 
-  public get$(req: Request, url: string): Observable<AxiosResponse<any>> {
+  public get$(req: Request, url: string): Observable<any> {
+    console.log('bbbbbbbb');
     const path = `${this.organizationServiceBaseUrl}${url}`;
     const config: AxiosRequestConfig = {
       params: req.query,
     };
+    const testData = [
+      {
+        customerId: 1,
+        customerName: 'customer1',
+      },
+      {
+        customerId: 2,
+        customerName: 'customer2',
+      },
+    ];
+    return of(testData);
     return this.http.get(path, config).pipe(
       catchError((e) => {
         return throwError(e);

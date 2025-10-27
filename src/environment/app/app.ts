@@ -2,33 +2,40 @@ import { SchemaUtility } from '../../schema/validator';
 import { JsonSchema } from '../../schema/validator.i';
 
 export interface IEnv {
-  LOCATION_SERVICE_BASE_URL: string;
+  APP_CONFIG_PATH?: string;
+  SERVER_PORT: string;
+  HOSTNAME?: string;
+  FRONTEND_DOMAIN: string;
 }
 
-export class OutBoundServiceConfig {
-  public static readonly configName = 'outBoundService';
-  public locationBaseUrl: string;
+export class AppConfig {
+  public port: number;
+  public frontend: string;
 
   constructor(env: IEnv = process.env as any) {
     try {
       if (!this.guardEnv(env)) {
-        console.log(`Invalid env in ${OutBoundServiceConfig.name}`);
+        console.log(`Invalid env in ${AppConfig.name}`);
         process.exit(-1);
       }
     } catch (e: any) {
       console.log(e.message, e.stack);
       process.exit(-1);
     }
-    this.locationBaseUrl = env.LOCATION_SERVICE_BASE_URL;
+    this.port = Number(env.SERVER_PORT);
+    this.frontend = env.FRONTEND_DOMAIN;
   }
 
   public guardEnv(env: IEnv) {
     const schema: JsonSchema = {
-      $id: `${OutBoundServiceConfig.name}-${OutBoundServiceConfig.prototype.guardEnv.name}`,
+      $id: `${AppConfig.name}-${AppConfig.prototype.guardEnv.name}`,
       type: 'object',
-      required: ['LOCATION_SERVICE_BASE_URL'],
+      required: ['SERVER_PORT', 'FRONTEND_DOMAIN'],
       properties: {
-        LOCATION_SERVICE_BASE_URL: {
+        SERVER_PORT: {
+          type: 'string',
+        },
+        FRONTEND_DOMAIN: {
           type: 'string',
         },
       },

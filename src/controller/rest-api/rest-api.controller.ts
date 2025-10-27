@@ -10,6 +10,7 @@ export class RestApiController {
   @Get('/bulk/customers')
   public getBulkCustomers(@Req() req: Request): Observable<any> {
     const url = `/bulk/customers`;
+    console.log('aaaaaa');
     return this.organizationService.get$(req, url);
   }
 }

@@ -1,7 +1,7 @@
-import { Global } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { OutBoundServiceConfig } from '../../environment/outBound/outbound.service';
 
-@Global()
+@Injectable()
 export class ConfigService {
   private readonly outBoundServiceConfig: OutBoundServiceConfig;
 
