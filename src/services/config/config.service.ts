@@ -9,7 +9,7 @@ export class ConfigService {
     this.outBoundServiceConfig = new OutBoundServiceConfig();
   }
 
-  public organizationServiceConfig(): OutBoundServiceConfig {
+  public databaseServiceConfig(): OutBoundServiceConfig {
     return this.outBoundServiceConfig;
   }
 }

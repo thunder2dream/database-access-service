@@ -6,19 +6,18 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Request } from 'express';
 
 @Injectable()
-export class RequestToOrganizationService {
-  public readonly organizationServiceBaseUrl: string;
+export class RequestToDatabaseService {
+  public readonly databaseServiceBaseUrl: string;
   constructor(
     config: ConfigService,
     public http: HttpService,
   ) {
-    this.organizationServiceBaseUrl =
-      config.organizationServiceConfig().locationBaseUrl;
+    this.databaseServiceBaseUrl =
+      config.databaseServiceConfig().databaseBaseUrl;
   }
 
   public get$(req: Request, url: string): Observable<any> {
-    console.log('bbbbbbbb');
-    const path = `${this.organizationServiceBaseUrl}${url}`;
+    const path = `${this.databaseServiceBaseUrl}${url}`;
     const config: AxiosRequestConfig = {
       params: req.query,
     };

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { RequestToOrganizationServiceModule } from '../../services/request-to-organization/request-to-organization.service.module';
+import { RequestToDatabaseServiceModule } from '../../services/request-to-db-service/request-to-db.service.module';
 import { RestApiController } from './rest-api.controller';
 
 @Module({
   controllers: [RestApiController],
-  imports: [RequestToOrganizationServiceModule],
+  imports: [RequestToDatabaseServiceModule],
 })
 export class RestApiModule {}

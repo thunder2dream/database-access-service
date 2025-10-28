@@ -2,12 +2,12 @@ import { SchemaUtility } from '../../schema/validator';
 import { JsonSchema } from '../../schema/validator.i';
 
 export interface IEnv {
-  LOCATION_SERVICE_BASE_URL: string;
+  DATABASE_SERVICE_BASE_URL: string;
 }
 
 export class OutBoundServiceConfig {
   public static readonly configName = 'outBoundService';
-  public locationBaseUrl: string;
+  public databaseBaseUrl: string;
 
   constructor(env: IEnv = process.env as any) {
     try {
@@ -19,16 +19,16 @@ export class OutBoundServiceConfig {
       console.log(e.message, e.stack);
       process.exit(-1);
     }
-    this.locationBaseUrl = env.LOCATION_SERVICE_BASE_URL;
+    this.databaseBaseUrl = env.DATABASE_SERVICE_BASE_URL;
   }
 
   public guardEnv(env: IEnv) {
     const schema: JsonSchema = {
       $id: `${OutBoundServiceConfig.name}-${OutBoundServiceConfig.prototype.guardEnv.name}`,
       type: 'object',
-      required: ['LOCATION_SERVICE_BASE_URL'],
+      required: ['DATABASE_SERVICE_BASE_URL'],
       properties: {
-        LOCATION_SERVICE_BASE_URL: {
+        DATABASE_SERVICE_BASE_URL: {
           type: 'string',
         },
       },
