@@ -2,9 +2,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { ConnectionOptions } from 'tls';
 import { PoolConfig } from 'pg';
-import { ParserUtils } from '../parser.utils';
-import { EnvType, ProcessEnv } from '../environment.i';
-import { ValidatorUtils } from '../validator-utils';
+import { ParserUtils } from './parser.utils';
+import { EnvType, ProcessEnv } from './environment.i';
+import { ValidatorUtils } from './validator-utils';
 
 // from process env
 export interface IEnv {

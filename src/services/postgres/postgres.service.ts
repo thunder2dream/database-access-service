@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { tap, catchError, mergeMap, map, finalize } from 'rxjs/operators';
 import { IConnectionPool, IClient } from './postgres.service.i';
 import { ConnectionPool } from './connection-pool';
-import { PostgresConfig } from '../../environment/postgres/postgres';
+import { PostgresConfig } from '../../environment/postgres';
 import { DatabaseServerError } from '../utils/error';
 
 @Injectable()

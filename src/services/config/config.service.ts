@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PostgresConfig } from '../../environment/postgres/postgres';
+import { PostgresConfig } from '../../environment/postgres';
 
 @Injectable()
 export class ConfigService {

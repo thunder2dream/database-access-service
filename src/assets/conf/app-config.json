@@ -8,6 +8,6 @@
     "keepAlive": true,
     "ssl": false,
     "certPath": "/app/certs/postgres.crt",
-    "applicationName": " database-access-service"
+    "applicationName": "database-access-service"
   }
 }
