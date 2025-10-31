@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigServiceModule } from '../config/config.module';
-import { RequestToDatabaseService } from './request-to-db.service';
+import { CompanyLocationsService } from './company-locations.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [ConfigServiceModule, HttpModule],
-  providers: [RequestToDatabaseService],
-  exports: [RequestToDatabaseService],
+  providers: [CompanyLocationsService],
+  exports: [CompanyLocationsService],
 })
-export class RequestToDatabaseServiceModule {
+export class CompanyLocationsServiceModule {
   constructor() {}
 }

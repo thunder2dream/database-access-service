@@ -1,11 +1,11 @@
 import { Controller, Get, Req } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import type { Request } from 'express';
-import { RequestToDatabaseService } from '../../services/request-to-db-service/request-to-db.service';
+import { CompanyLocationsService } from '../../services/company-locations-service/company-locations.service';
 
 @Controller('')
 export class RestApiController {
-  constructor(private databaseService: RequestToDatabaseService) {}
+  constructor(private databaseService: CompanyLocationsService) {}
 
   @Get('/bulk/customers')
   public getBulkCustomers(@Req() req: Request): Observable<any> {

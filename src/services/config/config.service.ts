@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { OutBoundServiceConfig } from '../../environment/outBound/outbound.service';
+import { PostgresConfig } from '../../environment/postgres/postgres';
 
 @Injectable()
 export class ConfigService {
-  private readonly outBoundServiceConfig: OutBoundServiceConfig;
+  private readonly postgres: PostgresConfig;
 
   public constructor() {
-    this.outBoundServiceConfig = new OutBoundServiceConfig();
+    this.postgres = new PostgresConfig();
   }
 
-  public databaseServiceConfig(): OutBoundServiceConfig {
-    return this.outBoundServiceConfig;
+  public postgresConfig(): PostgresConfig {
+    return this.postgres;
   }
 }

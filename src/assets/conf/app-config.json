@@ -1,0 +1,13 @@
+{
+  "postgres": {
+    "host": "localhost",
+    "database": "manage",
+    "port": 5432,
+    "user": "postgres",
+    "password": "postgres",
+    "keepAlive": true,
+    "ssl": false,
+    "certPath": "/app/certs/postgres.crt",
+    "applicationName": " database-access-service"
+  }
+}

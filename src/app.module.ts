@@ -9,5 +9,6 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
   ],
+  providers: [],
 })
 export class AppModule {}
