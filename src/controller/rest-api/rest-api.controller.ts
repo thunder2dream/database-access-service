@@ -1,5 +1,5 @@
-import { Controller, Get, Req } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { Controller, Get, HttpException, Req } from '@nestjs/common';
+import { catchError, Observable, throwError } from 'rxjs';
 import type { Request } from 'express';
 import { CompanyLocationsService } from '../../services/company-locations-service/company-locations.service';
 
@@ -10,6 +10,10 @@ export class RestApiController {
   @Get('/bulk/customers')
   public getBulkCustomers(@Req() req: Request): Observable<any> {
     const url = `/bulk/customers`;
-    return this.databaseService.get$(req, url);
+    return this.databaseService.get$().pipe(
+      catchError((err: Error) => {
+        return throwError(() => new HttpException(err.message, 500));
+      }),
+    );
   }
 }
