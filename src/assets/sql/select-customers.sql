@@ -1,5 +1,5 @@
 SELECT
-id            AS "customerId",
-name          AS "customerName"
+id            AS "id",
+name          AS "name"
 FROM customer
 ORDER BY customer.id

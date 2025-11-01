@@ -23,6 +23,21 @@ export class CompanyLocationsService {
   ) {}
 
   public get$(): Observable<Customer[]> {
+    // const testData: Customer[] = [
+    //   {
+    //     id: 1,
+    //     name: 'CustomerName1',
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 'CustomerName2',
+    //   },
+    //   {
+    //     id: 3,
+    //     name: 'CustomerName3',
+    //   },
+    // ];
+    // return of(testData);
     return this.postgres
       .query$(this.config.postgresConfig(), (client: IClient) => {
         const sqlPath = `${this.sqlDir}/select-customers.sql`;

@@ -27,9 +27,8 @@ export class PostgresService implements OnModuleDestroy {
   public createPool(config?: PoolConfig | string) {
     return new ConnectionPool(config);
   }
-  /** * Get the connection pool instance by PoolConfig. * If not exist, create and return new instance by config object/string. * @param config connection string or config object. */ public get(
-    config: PoolConfig | string,
-  ): IConnectionPool {
+  /** * Get the connection pool instance by PoolConfig. * If not exist, create and return new instance by config object/string. * @param config connection string or config object. */
+  public get(config: PoolConfig | string): IConnectionPool {
     const key = JSON.stringify(config);
     if (!this.pools[key]) {
       const pool = this.createPool(config);

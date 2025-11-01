@@ -45,7 +45,7 @@ export class PostgresConfig implements PoolConfig {
     POSTGRES_DATABASE: 'manage',
     POSTGRES_PORT: '5432',
     POSTGRES_USER: 'postgres',
-    POSTGRES_PASSWORD: 'postgres',
+    POSTGRES_PASSWORD: 'asdf55555',
     POSTGRES_KEEPALIVE: 'true',
     POSTGRES_USE_SSL: 'false',
     POSTGRES_CERT_PATH: '/app/certs/postgres.crt',
@@ -53,10 +53,10 @@ export class PostgresConfig implements PoolConfig {
   };
 
   public host = 'localhost';
-  public database = 'postgres';
+  public database = 'manage';
   public port = 5432;
   public user = 'postgres';
-  public password = 'postgres';
+  public password = 'asdf55555';
   public keepAlive = true;
   public ssl: boolean | ConnectionOptions = {
     rejectUnauthorized: false,

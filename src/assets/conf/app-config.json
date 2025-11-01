@@ -4,7 +4,7 @@
     "database": "manage",
     "port": 5432,
     "user": "postgres",
-    "password": "postgres",
+    "password": "asdf55555",
     "keepAlive": true,
     "ssl": false,
     "certPath": "/app/certs/postgres.crt",
